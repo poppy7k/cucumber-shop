@@ -1,4 +1,4 @@
-package ku.shop;
+package ku.shop; //Watcharavit Jiracheeppattana 6410401159
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,6 +26,12 @@ public class BuyStepdefs {
     public void i_buy_with_quantity(String name, int quantity) {
         Product prod = catalog.getProduct(name);
         order.addItem(prod, quantity);
+    }
+
+    @Then("total quantity of {string} should be {int}")
+    public void total_quatity_should_be(String name, int stock) {
+        Product prod = catalog.getProduct(name);
+        assertEquals(stock, prod.getStock());
     }
 
     @Then("total should be {float}")
